@@ -1,2 +1,2 @@
 # Data-Science-Assignments
-OSNA IIT CS579 
+Online Social Media Analysis IIT CS579 

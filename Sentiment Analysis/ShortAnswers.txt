@@ -1,0 +1,35 @@
+1. Looking at the top errors printed by get_top_misclassified, name two ways you would modify your classifier to improve accuracy (it could be features, tokenization, or something else.)
+	We can improve the accuracy by following methods
+	 1. In lexicon feature, add more relevat positive and negative words in the lists
+	 2. During tokenization remove the stop-words from the token list. Removing stopwords will increase the testing accuracy
+
+
+
+
+2. Implement one of the above methods. How did it affect the results?
+	1. By implementing method one testing accuracy incresed from 0.7300 to 0.757500
+	Changes in the a2.py file 
+	neg_words = set(['bad', 'hate', 'horrible', 'worst', 'boring', 'mean', 'despise', 'cheesy'])
+	pos_words = set(['awesome', 'amazing', 'best', 'good', 'great', 'love', 'wonderful', 'like', 'cool','interesting'])
+
+	2. by implementing method two testing accuracy incresed from 0.7300 to 0.76500
+
+	Changes in the a2.py file
+	
+	
+	def filter_stopwords(token_list, fname='stopwords.txt'):
+    		content = []
+    		with open(fname) as f:
+        	content = f.readlines()
+        	content = [x.strip() for x in content]
+    
+    		stop_words_set = set(content)
+    		token_set = set(token_list)
+    		new_token_list = token_set - (token_set & stop_words_set)
+    		return list(new_token_list)
+
+	Call above function in tokenize function and return the results to remove the stopwords
+	
+		return filter_stopwords(tokens)	
+
+	3. Implementing both increases accuracy from 0.767500 to 
